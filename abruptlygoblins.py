@@ -22,6 +22,9 @@ def calculate_availability(gamers_list, available_frequency):
         for day in gamer['availability']:
             available_frequency[day] += 1
 
+def find_best_night(availability_table):
+    return list(count_availability.keys())[list(count_availability.values()).index(max(count_availability.values()))]
+
 add_gamer({'name': 'Kimberly', 'availability': ['Monday', 'Tuesday', 'Friday']})
 add_gamer({'name':'Thomas Nelson','availability': ["Tuesday", "Thursday", "Saturday"]})
 add_gamer({'name':'Joyce Sellers','availability': ["Monday", "Wednesday", "Friday", "Saturday"]})
@@ -33,4 +36,6 @@ add_gamer({'name':'Crystal Brewer','availability': ["Thursday", "Friday", "Satur
 add_gamer({'name':'James Barnes Jr.','availability': ["Tuesday", "Wednesday", "Thursday", "Sunday"]})
 
 calculate_availability(gamers_list, count_availability)
-print(count_availability)
+
+game_night = find_best_night(count_availability)
+print(game_night)
